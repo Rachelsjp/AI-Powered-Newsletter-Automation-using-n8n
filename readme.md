@@ -1,4 +1,5 @@
 
+
 # 🚀 AI-Powered Newsletter Automation using n8n, Slack & Gmail
 
 An end-to-end **AI-driven automation system** that generates and delivers newsletters in real time using **Slack, n8n, and Gmail**.
@@ -36,21 +37,31 @@ The goal of this project is to:
 
 ---
 
-
 ## 🏗️ Architecture
 
-```mermaid
-flowchart TD
-    A[User Input - Slack] --> B[n8n Webhook Trigger]
-    B --> C[Input Processing - Code Node]
-    C --> D[Validation - IF Node]
-    
-    D -->|Invalid Input| E[Slack Error Response]
-    D -->|Valid Input| F[AI Model - Content Generation]
-    
-    F --> G[Formatting - HTML Email]
-    G --> H[Gmail - Send Email]
-    H --> I[Slack Confirmation - Success]
+
+Slack (User Input)
+│
+▼
+n8n Webhook Trigger
+│
+▼
+Input Processing (Code Node)
+│
+▼
+Validation (IF Node)
+│
+▼
+AI Model (Content Generation)
+│
+▼
+Formatting (HTML Email)
+│
+▼
+Gmail (Send Email)
+│
+▼
+Slack Confirmation (Success/Error)
 
 
 ---
@@ -155,6 +166,8 @@ hi
 ### 4. Slack Output
 ![Slack Output](screenshots/slack-output.png)
 
+✅ Slack Output
+
 🚀 Key Features
 
 📩 End-to-end automation
@@ -192,6 +205,7 @@ Multi-topic batch generation
 Personalization using AI
 Integration with CRM tools
 Multi-language support
+
 👩‍💻 Developed By
 
 Rachel Purnima J
@@ -204,9 +218,11 @@ n8n workflow automation
 Slack integrations
 Gmail OAuth
 AI-powered content generation
+
 🌟 Final Thought
 
 Building real-world GenAI systems is not just about generating content —
 
 👉 it's about connecting tools, automating workflows, and delivering value in real time.
+
 
