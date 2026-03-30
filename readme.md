@@ -1,6 +1,4 @@
 
-Here’s your final upgraded README (portfolio-grade, AI PM style) 👇
-
 # 🚀 AI-Powered Newsletter Automation using n8n, Slack & Gmail
 
 An end-to-end **AI-driven automation system** that generates and delivers newsletters in real time using **Slack, n8n, and Gmail**.
