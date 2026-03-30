@@ -158,29 +158,29 @@ hi
 
 ## Key Features
 
-End-to-end automation
+**End-to-end automation
 AI-powered content generation
 Slack integration
 Email automation
 Input validation
-HTML formatting
+HTML formatting**
 ---
 
 ## 🧠 Key Learnings
 
-Automation + AI integration
+**Automation + AI integration
 Webhooks for real-time systems
 Importance of validation
 Workflow orchestration using n8n
-AI as part of larger system
+AI as part of larger system**
 ---
 
 ## 💼 Use Cases
 
-Marketing newsletters
+**Marketing newsletters
 Business reports
 Internal communication
-Content automation
+Content automation**
 ---
 
 ## ⚡ Future Improvements
@@ -196,6 +196,15 @@ Multi-language support
 
 Rachel Purnima J
 
+---
+📌 Note
+
+This project was built as part of hands-on learning in:
+
+n8n workflow automation
+Slack integrations
+Gmail OAuth
+AI-powered content generation
 ---
 
 ## 🌟 Final Thought
