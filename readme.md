@@ -18,15 +18,21 @@ Deliver structured and formatted output via email
 Provide instant feedback to the user
 🏗️ Architecture
 🔄 Workflow
+
 Slack → n8n Trigger → AI Model → Processing → Gmail → Slack Confirmation
+
 ⚙️ Setup Instructions
 1️⃣ Start n8n (Local Setup)
 n8n start
+
+This starts n8n at:
+http://localhost:5678
+
 2️⃣ Start ngrok (Expose Localhost)
 ngrok http 5678
 
-Copy the HTTPS URL generated (example: https://xxxxx.ngrok-free.dev
-)
+Copy the HTTPS URL generated
+Example: https://xxxxx.ngrok-free.dev
 
 3️⃣ Configure Slack App
 🔹 Enable Event Subscriptions
@@ -50,41 +56,47 @@ chat:write
 Install the app to your workspace.
 
 4️⃣ Add Bot to Channels
+
+Add bot to:
+
 #newsletter
 #newsletter-output
 /invite @your-bot-name
 5️⃣ Gmail OAuth Setup
+
+Add redirect URL:
+
 http://localhost:5678/rest/oauth2-credential/callback
-Add Gmail as Test User
-Connect in n8n
+Add your Gmail as Test User
+Connect Gmail in n8n
 🔄 Workflow Explanation
 🔹 Slack Trigger Node
 
-Captures user input from Slack channel and starts the workflow.
+Captures user input from Slack and starts the workflow.
 
 🔹 Code Node (Input Processing)
 
-Extracts the message text from Slack payload and prepares it for processing.
+Extracts $json.text and prepares clean input.
 
 🔹 IF Node (Validation)
 
-Checks whether the input is valid and routes the flow accordingly.
+Validates input and routes flow (true/false).
 
 🔹 AI Model Node
 
-Generates structured newsletter content based on the input topic.
+Generates structured newsletter content.
 
 🔹 Code Node (Formatting)
 
-Formats the AI output into clean HTML for email readability.
+Formats AI output into HTML email content.
 
 🔹 Gmail Node
 
-Sends the generated newsletter via email.
+Sends the newsletter email.
 
 🔹 Slack Node (Success)
 
-Sends a confirmation message after successful execution.
+Sends confirmation message after success.
 
 🔹 Slack Node (Error Handling)
 
@@ -92,6 +104,7 @@ Handles invalid input and informs the user.
 
 🧪 Test Scenarios
 ✅ Valid Input
+
 AI in retail analytics
 
 ✔ Newsletter generated
@@ -99,9 +112,10 @@ AI in retail analytics
 ✔ Slack confirmation
 
 ❌ Invalid Input
+
 hi
 
-✔ Error message in Slack
+✔ Error message shown in Slack
 
 📸 Screenshots
 1. Slack Input
