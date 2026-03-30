@@ -52,6 +52,7 @@ Gmail (Send Email)
 │
 ▼
 Slack Confirmation (Success/Error)
+<img width="570" height="311" alt="image" src="https://github.com/user-attachments/assets/0983cef3-ff9c-4eef-b25f-5ffdb03315b7" />
 
 ---
 
