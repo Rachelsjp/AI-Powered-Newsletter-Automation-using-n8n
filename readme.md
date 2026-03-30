@@ -38,29 +38,20 @@ The goal of this project is to:
 
 ## 🏗️ Architecture
 
-[User Input - Slack]
-│
-▼
-[n8n Webhook Trigger]
-│
-▼
-[Input Processing (Code Node)]
-│
-▼
-[Validation (IF Node)]
-│ │
-│ └───────────────► [Error → Slack Response]
-▼
-[AI Model - Content Generation]
-│
-▼
-[Formatting - HTML Email]
-│
-▼
-[Gmail - Send Email]
-│
-▼
-[Slack Confirmation - Success]
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    A[User Input - Slack] --> B[n8n Webhook Trigger]
+    B --> C[Input Processing (Code Node)]
+    C --> D[Validation (IF Node)]
+    
+    D -->|Invalid Input| E[Slack Error Response]
+    D -->|Valid Input| F[AI Model - Content Generation]
+    
+    F --> G[Formatting - HTML Email]
+    G --> H[Gmail - Send Email]
+    H --> I[Slack Confirmation - Success]
 
 
 ---
