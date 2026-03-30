@@ -141,4 +141,8 @@ AI integration in workflows
 Data transformation using n8n
 📌 Conclusion
 
+<<<<<<< HEAD
 This project demonstrates how AI and automation tools can be combined to build a real-time content generation system, reducing manual effort and improving efficiency.
+=======
+This project demonstrates how AI and automation tools can be combined to build a real-time content generation system, reducing manual effort and improving efficiency.
+>>>>>>> c7ce8713f008af9e62980cf3f2a56ef999946b4c
