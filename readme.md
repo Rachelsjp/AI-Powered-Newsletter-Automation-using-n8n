@@ -36,15 +36,14 @@ The goal of this project is to:
 
 ---
 
-## 🏗️ Architecture
 
 ## 🏗️ Architecture
 
 ```mermaid
 flowchart TD
     A[User Input - Slack] --> B[n8n Webhook Trigger]
-    B --> C[Input Processing (Code Node)]
-    C --> D[Validation (IF Node)]
+    B --> C[Input Processing - Code Node]
+    C --> D[Validation - IF Node]
     
     D -->|Invalid Input| E[Slack Error Response]
     D -->|Valid Input| F[AI Model - Content Generation]
