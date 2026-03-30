@@ -38,29 +38,29 @@ The goal of this project is to:
 
 ## 🏗️ Architecture
 
-
-Slack (User Input)
+[User Input - Slack]
 │
 ▼
-n8n Webhook Trigger
+[n8n Webhook Trigger]
 │
 ▼
-Input Processing (Code Node)
+[Input Processing (Code Node)]
 │
 ▼
-Validation (IF Node)
+[Validation (IF Node)]
+│ │
+│ └───────────────► [Error → Slack Response]
+▼
+[AI Model - Content Generation]
 │
 ▼
-AI Model (Content Generation)
+[Formatting - HTML Email]
 │
 ▼
-Formatting (HTML Email)
+[Gmail - Send Email]
 │
 ▼
-Gmail (Send Email)
-│
-▼
-Slack Confirmation (Success/Error)
+[Slack Confirmation - Success]
 
 
 ---
