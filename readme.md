@@ -55,34 +55,33 @@ Slack Confirmation (Success/Error)
 
 ---
 
-🔄 Workflow Explanation
-🔹 Slack Trigger
+---
 
-Captures user input and starts workflow
+## 🔄 Workflow Explanation
 
-🔹 Input Processing
+### 🔹 Slack Trigger Node  
+Captures user input and initiates the workflow.
 
-Extracts and cleans input
+### 🔹 Code Node (Input Processing)  
+Extracts `$json.text` and cleans the input.
 
-🔹 Validation
+### 🔹 IF Node (Validation)  
+Validates input and controls workflow execution.
 
-Checks input quality
+### 🔹 AI Model Node  
+Generates structured newsletter content.
 
-🔹 AI Model
+### 🔹 Code Node (Formatting)  
+Formats output into HTML email.
 
-Generates newsletter content
+### 🔹 Gmail Node  
+Sends the newsletter email.
 
-🔹 Formatting
+### 🔹 Slack Node (Success)  
+Confirms successful execution.
 
-Converts to HTML email
-
-🔹 Gmail
-
-Sends email
-
-🔹 Slack Response
-
-Confirms success or error
+### 🔹 Slack Node (Error Handling)  
+Handles invalid inputs and errors.
 
 ⚙️ Setup Instructions
 1️⃣ Start n8n
@@ -160,24 +159,31 @@ hi
 
 
 🚀 Key Features
+
 End-to-end automation
 AI-powered content generation
 Slack integration
 Email automation
 Input validation
 HTML formatting
+
 🧠 Key Learnings
+
 Automation + AI integration
 Webhooks for real-time systems
 Importance of validation
 Workflow orchestration using n8n
 AI as part of larger system
+
 💼 Use Cases
+
 Marketing newsletters
 Business reports
 Internal communication
 Content automation
+
 ⚡ Future Improvements
+
 Scheduled automation
 Personalization
 CRM integration
@@ -190,7 +196,6 @@ Rachel Purnima J
 🌟 Final Thought
 
 Building GenAI systems is not just about generating content —
-
 👉 It's about connecting systems, automating workflows, and delivering real value.
 
 -------
