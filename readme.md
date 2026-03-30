@@ -41,9 +41,6 @@ Enable Event Subscriptions
 Add Request URL:
 https://<ngrok-url>/webhook/<your-webhook-id>/webhook
 🔹 Subscribe to Events
-
-Add:
-
 message.channels
 🔹 OAuth Permissions
 
@@ -117,14 +114,25 @@ hi
 
 ✔ Error message shown in Slack
 
-📸 Screenshots
-1. Slack Input
+## 📸 Screenshots
 
-2. Workflow Execution
+### 1. Slack Input
+![Slack Input](screenshots/slack-input.png)
 
-3. Email Received
+---
 
-4. Slack Output
+### 2. Workflow Execution
+![Workflow](screenshots/workflow.png)
+
+---
+
+### 3. Email Received
+![Email](screenshots/email.png)
+
+---
+
+### 4. Slack Output
+![Slack Output](screenshots/slack-output.png)
 
 🚀 Features
 End-to-end automation
@@ -141,8 +149,4 @@ AI integration in workflows
 Data transformation using n8n
 📌 Conclusion
 
-<<<<<<< HEAD
 This project demonstrates how AI and automation tools can be combined to build a real-time content generation system, reducing manual effort and improving efficiency.
-=======
-This project demonstrates how AI and automation tools can be combined to build a real-time content generation system, reducing manual effort and improving efficiency.
->>>>>>> c7ce8713f008af9e62980cf3f2a56ef999946b4c
