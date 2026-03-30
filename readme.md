@@ -129,6 +129,7 @@ AI in retail analytics
 ✔ Email sent
 ✔ Slack confirmation
 
+
 ❌ Invalid Input
 
 hi
@@ -202,7 +203,8 @@ hi
 Rachel Purnima J
 
 ---
-📌 Note
+
+## 📌 Note
 
 This project was built as part of hands-on learning in:
 •	n8n workflow automation
