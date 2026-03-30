@@ -27,21 +27,34 @@ This project demonstrates how to build a real-world automation pipeline that:
 - Provide instant feedback  
 
 ---
-
 ## 🏗️ Architecture
 
-```mermaid
-flowchart TD
-    A[Slack Input] --> B[n8n Trigger]
-    B --> C[Input Processing]
-    C --> D[Validation]
 
-    D -->|Invalid| E[Slack Error]
-    D -->|Valid| F[AI Content Generation]
+Slack (User Input)
+│
+▼
+n8n Webhook Trigger
+│
+▼
+Input Processing (Code Node)
+│
+▼
+Validation (IF Node)
+│
+▼
+AI Model (Content Generation)
+│
+▼
+Formatting (HTML Email)
+│
+▼
+Gmail (Send Email)
+│
+▼
+Slack Confirmation (Success/Error)
 
-    F --> G[Email Formatting]
-    G --> H[Gmail Send]
-    H --> I[Slack Confirmation]
+---
+
 🔄 Workflow Explanation
 🔹 Slack Trigger
 
@@ -125,14 +138,26 @@ hi
 
 ✔ Error shown in Slack
 
-📸 Screenshots
-Slack Input
+## 📸 Screenshots
 
-Workflow Execution
+### 1. Slack Input
+![Slack Input](screenshots/slack-input.png)
 
-Email Received
+---
 
-Slack Output
+### 2. Workflow Execution
+![Workflow](screenshots/workflow.png)
+
+---
+
+### 3. Email Received
+![Email](screenshots/email.png)
+
+---
+
+### 4. Slack Output
+![Slack Output](screenshots/slack-output.png)
+
 
 🚀 Key Features
 End-to-end automation
@@ -157,6 +182,7 @@ Scheduled automation
 Personalization
 CRM integration
 Multi-language support
+
 👩‍💻 Developed By
 
 Rachel Purnima J
