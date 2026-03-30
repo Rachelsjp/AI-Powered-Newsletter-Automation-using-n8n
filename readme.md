@@ -30,31 +30,8 @@ This project demonstrates how to build a real-world automation pipeline that:
 ## 🏗️ Architecture
 
 
-Slack (User Input)
-│
-▼
-n8n Webhook Trigger
-│
-▼
-Input Processing (Code Node)
-│
-▼
-Validation (IF Node)
-│
-▼
-AI Model (Content Generation)
-│
-▼
-Formatting (HTML Email)
-│
-▼
-Gmail (Send Email)
-│
-▼
-Slack Confirmation (Success/Error)
 <img width="570" height="311" alt="image" src="https://github.com/user-attachments/assets/0983cef3-ff9c-4eef-b25f-5ffdb03315b7" />
 
----
 
 ---
 
