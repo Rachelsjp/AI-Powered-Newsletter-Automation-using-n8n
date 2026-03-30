@@ -159,7 +159,7 @@ hi
 
 ---
 
-## Key Features
+## 🧠 Key Features
 
 •	End-to-end automation
 •	AI-powered content generation
