@@ -83,7 +83,8 @@ Confirms successful execution.
 ### 🔹 Slack Node (Error Handling)  
 Handles invalid inputs and errors.
 
-###⚙️ Setup Instructions
+---
+##⚙️ Setup Instructions
 
 1️⃣ Start n8n
 n8n start
