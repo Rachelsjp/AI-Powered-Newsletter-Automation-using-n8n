@@ -89,56 +89,50 @@ Handles invalid inputs and errors.
 
 1️⃣ Start n8n
 n8n start
-
 Access:
 http://localhost:5678
 
 2️⃣ Start ngrok
 ngrok http 5678
-
 Example:
 https://xxxxx.ngrok-free.dev
 
 3️⃣ Configure Slack App
-
 Enable Event Subscriptions
-
 Request URL:
-
 https://<ngrok-url>/webhook/<your-webhook-id>/webhook
-
 Subscribe to Events
-
 message.channels
-
 OAuth Permissions
-
 channels:history
 channels:read
 chat:write
+
 4️⃣ Add Bot to Channels
 #newsletter
 #newsletter-output
 /invite @your-bot-name
+
 5️⃣ Gmail OAuth Setup
-
 Redirect URL:
-
 http://localhost:5678/rest/oauth2-credential/callback
 Add Gmail as test user
 Connect Gmail in n8n
-🧪 Test Scenarios
+
+---
+
+## 🧪 Test Scenarios
 ✅ Valid Input
 AI in retail analytics
-
 ✔ Newsletter generated
 ✔ Email sent
 ✔ Slack confirmation
 
 ❌ Invalid Input
 hi
-
 ✔ Error shown in Slack
+
+---
 
 ## 📸 Screenshots
 
@@ -160,8 +154,9 @@ hi
 ### 4. Slack Output
 ![Slack Output](screenshots/slack-output.png)
 
+---
 
-###🚀 Key Features
+## Key Features
 
 End-to-end automation
 AI-powered content generation
@@ -169,39 +164,46 @@ Slack integration
 Email automation
 Input validation
 HTML formatting
+---
 
-###🧠 Key Learnings
+## 🧠 Key Learnings
 
 Automation + AI integration
 Webhooks for real-time systems
 Importance of validation
 Workflow orchestration using n8n
 AI as part of larger system
+---
 
-###💼 Use Cases
+## 💼 Use Cases
 
 Marketing newsletters
 Business reports
 Internal communication
 Content automation
+---
 
-###⚡ Future Improvements
+## ⚡ Future Improvements
 
 Scheduled automation
 Personalization
 CRM integration
 Multi-language support
 
-###👩‍💻 Developed By
+---
+
+## 👩‍💻 Developed By
 
 Rachel Purnima J
 
-###🌟 Final Thought
+---
+
+## 🌟 Final Thought
 
 Building GenAI systems is not just about generating content —
 👉 It's about connecting systems, automating workflows, and delivering real value.
 
--------
+------------------------
 
 # 🚀 AI-Powered Newsletter Automation using n8n, Slack & Gmail
 
