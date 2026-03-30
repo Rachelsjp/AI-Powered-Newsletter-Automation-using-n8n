@@ -123,12 +123,14 @@ Connect Gmail in n8n
 
 ## 🧪 Test Scenarios
 ✅ Valid Input
+
 AI in retail analytics
 ✔ Newsletter generated
 ✔ Email sent
 ✔ Slack confirmation
 
 ❌ Invalid Input
+
 hi
 ✔ Error shown in Slack
 
@@ -164,6 +166,7 @@ hi
 •	Email automation
 •	Input validation
 •	HTML formatting
+
 ---
 
 ## 🧠 Key Learnings
