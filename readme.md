@@ -83,7 +83,8 @@ Confirms successful execution.
 ### 🔹 Slack Node (Error Handling)  
 Handles invalid inputs and errors.
 
-⚙️ Setup Instructions
+###⚙️ Setup Instructions
+
 1️⃣ Start n8n
 n8n start
 
@@ -158,7 +159,7 @@ hi
 ![Slack Output](screenshots/slack-output.png)
 
 
-🚀 Key Features
+###🚀 Key Features
 
 End-to-end automation
 AI-powered content generation
@@ -167,7 +168,7 @@ Email automation
 Input validation
 HTML formatting
 
-🧠 Key Learnings
+###🧠 Key Learnings
 
 Automation + AI integration
 Webhooks for real-time systems
@@ -175,25 +176,25 @@ Importance of validation
 Workflow orchestration using n8n
 AI as part of larger system
 
-💼 Use Cases
+###💼 Use Cases
 
 Marketing newsletters
 Business reports
 Internal communication
 Content automation
 
-⚡ Future Improvements
+###⚡ Future Improvements
 
 Scheduled automation
 Personalization
 CRM integration
 Multi-language support
 
-👩‍💻 Developed By
+###👩‍💻 Developed By
 
 Rachel Purnima J
 
-🌟 Final Thought
+###🌟 Final Thought
 
 Building GenAI systems is not just about generating content —
 👉 It's about connecting systems, automating workflows, and delivering real value.
