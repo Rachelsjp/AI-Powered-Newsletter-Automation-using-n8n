@@ -1,0 +1,315 @@
+{
+  "name": "AI-Powered Newsletter Automation using n8n, Slack & Gmail",
+  "nodes": [
+    {
+      "parameters": {
+        "trigger": [
+          "message"
+        ],
+        "channelId": {
+          "__rl": true,
+          "value": "C0APAE9JLVD",
+          "mode": "list",
+          "cachedResultName": "newsletter-output"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.slackTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1552,
+        -320
+      ],
+      "id": "a03088d5-47f4-4211-b6e6-0a8bfd1ed379",
+      "name": "Slack Trigger",
+      "webhookId": "0c0c5295-816b-405b-9f53-8fa12cc3d7ec",
+      "executeOnce": false,
+      "credentials": {
+        "slackApi": {
+          "id": "u9ppLWddA0FF31fj",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "dc74e106-91fd-4c9a-b2cc-344be769f4dd",
+              "leftValue": "={{$json[\"text\"]}}",
+              "rightValue": "=Newsletter on",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "21e32100-7412-4f02-9160-4cc6b23cd845",
+              "leftValue": "={{$json[\"bot_id\"]}}",
+              "rightValue": 5,
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "03d508ef-2b61-444f-8546-7687470e5146",
+              "leftValue": "={{$json[\"subtype\"]}}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -1104,
+        -320
+      ],
+      "id": "adfff8a9-87a6-4fb8-b60d-7af1e3219160",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Write a professional newsletter on: {{$json[\"text\"]}}\n\nFormat strictly in structured sections:\n\nTITLE:\nSUMMARY:\nKEY INSIGHTS:\nUSE CASES:\nCONCLUSION:"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        -848,
+        -432
+      ],
+      "id": "082d0c6f-fdfe-4f1f-b689-aad39a0ae459",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "caErfPQqSiU3GGSV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const topic = $item(0).$node[\"Code in JavaScript1\"].json.text || \"Newsletter\";\n\nlet content = \"\";\n\n// Extract AI response correctly\nif ($json.output && Array.isArray($json.output)) {\n  const aiContent = $json.output[0].content;\n\n  if (Array.isArray(aiContent) && aiContent.length > 0) {\n    content = aiContent[0].text || \"\";\n  }\n}\n\n// Clean and format content\ncontent = content\n  // Convert headings (#, ##, ###) → proper HTML headings\n  .replace(/^###\\s*(.*)/gm, \"<h4>$1</h4>\")\n  .replace(/^##\\s*(.*)/gm, \"<h3>$1</h3>\")\n  .replace(/^#\\s*(.*)/gm, \"<h3>$1</h3>\")\n\n  // Bold text\n  .replace(/\\*\\*(.*?)\\*\\*/g, \"<b>$1</b>\")\n\n  // Convert bullet points\n  .replace(/^- (.*)/gm, \"• $1\")\n\n  // Add line breaks\n  .replace(/\\n/g, \"<br>\");\n\n// Final output\nreturn [\n  {\n    topic: topic,\n    subject: `Newsletter on ${topic}`,\n    html: `\n      <div style=\"font-family: Arial, sans-serif; line-height:1.6; padding:10px;\">\n        <h2>${topic}</h2>\n        ${content}\n        <br><hr>\n        <small>This email was sent automatically with n8n</small>\n      </div>\n    `\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -528,
+        -432
+      ],
+      "id": "29838f3c-1651-45a3-a120-34ef9924dc88",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "sendTo": "rachelspurnima@gmail.com",
+        "subject": "={{$json[\"subject\"]}}",
+        "message": "={{$json[\"html\"]}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -272,
+        -432
+      ],
+      "id": "df715fab-c421-4567-93e9-0e1119ba520f",
+      "name": "Send a message",
+      "webhookId": "638cb5a4-a94c-4f55-99c6-3d9e6d119e80",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "4O1h274qpItD0W9s",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0APZ0RUY4R",
+          "mode": "list",
+          "cachedResultName": "newsletter"
+        },
+        "text": "=✅ Newsletter sent successfully!",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        0,
+        -432
+      ],
+      "id": "c828f2c5-0ecc-4941-8a11-fbc4a2106dc6",
+      "name": "Send a message1",
+      "webhookId": "bd241272-2d6a-4bdd-ae93-c7926bcd12f5",
+      "credentials": {
+        "slackApi": {
+          "id": "u9ppLWddA0FF31fj",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0APZ0RUY4R",
+          "mode": "list",
+          "cachedResultName": "newsletter"
+        },
+        "text": "❌ Please enter a valid topic (minimum 5 characters) Example: AI in Healthcare",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        -848,
+        -192
+      ],
+      "id": "7ae5960f-8ce8-4038-a785-b4e5245cd42d",
+      "name": "Send a message2",
+      "webhookId": "dfb3b045-bb8c-4f3f-b5c6-834b632ae560",
+      "credentials": {
+        "slackApi": {
+          "id": "u9ppLWddA0FF31fj",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rawText =\n  $json.text ||\n  $json.event?.text ||\n  \"\";\n\nreturn [\n  {\n    text: $json.text,\n    topic: $json.text\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1312,
+        -320
+      ],
+      "id": "83e5a003-cb5e-4f68-a846-b97f152183a5",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Slack Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "9e82f8f4-0c56-47de-9feb-9c7a4f62bbcf",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ebc93520f963f3b1670c2739eb5a41f95e121cb85ef80666801493163a53dea9"
+  },
+  "id": "PRMVswN2Ok9aiqZ6",
+  "tags": []
+}
